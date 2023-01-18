@@ -70,7 +70,6 @@ Describe: numberOfOccurencesInText()
         numberOfOccurrencesInText(word, text);
     Expected Output: 3
 
-
 Describe: omitBadWords()
    Test: "It should replace the value of the badWord"
     Code:
