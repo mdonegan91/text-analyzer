@@ -28,6 +28,7 @@ Describe: wordCounter()
     Expected Output: 2
 
 Describe: numberOfOccurencesInText()
+
     Test: "It should return 0 occurences of a word for an empty string."
     Code:
         const text = "";
@@ -71,6 +72,7 @@ Describe: numberOfOccurencesInText()
     Expected Output: 3
 
 Describe: omitBadWords()
+
    Test: "It should replace the value of the badWord"
     Code:
         const badWord = "zoinks";
