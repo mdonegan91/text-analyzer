@@ -25,12 +25,7 @@ function numberOfOccurrencesInText(word, text) {
     return wordCount;
 }
 
-
-
 // const badArray = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
-
-const badWord = "zoinks";
-const text = "holy zoinks crazy";
 
 function omitBadWords(badWord, text) {
     const textArray = text.split(" ");
@@ -47,8 +42,3 @@ function omitBadWords(badWord, text) {
     });
     return updatedText.trim();
 }
-
-omitBadWords(badWord, text)
-
-
-
