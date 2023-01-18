@@ -27,10 +27,10 @@ function numberOfOccurrencesInText(word, text) {
 
 
 
-const badArray = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
+// const badArray = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
 
-const badWord = "shit";
-const text = "holy shit batman";
+const badWord = "zoinks";
+const text = "holy zoinks crazy";
 
 function omitBadWords(badWord, text) {
     const textArray = text.split(" ");
