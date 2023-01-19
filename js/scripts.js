@@ -39,78 +39,39 @@ function totalWordCounter(words) {
         return null;
     }
     const totalWordArray = words.split(" ");
-    let container = "";
+    let output = "";
     let wordCount = 0
-    // const word = text.toString() + ": " + wordCounter(text);
     totalWordArray.forEach(function (word) {
         let newWordCount = 0
         wordCount = newWordCount + numberOfOccurrencesInText(word, words);
-        container += word + " " + wordCount;
+        output += word + " " + wordCount + " ";
 
     })
-    // return word; 
-    return container;
-}
-
-function countEachWord(text) {
-    let array = [];
-    let array1 = [];
-    let array2 = [];
-    let array3 = [];
-
-    array[0] = document.getElementById("input").value;
-    array1 = array.toString();
-    array1 = array1.split(" ");
-    if (text.trim().length === 0) {
-        return null;
-    }
-    else {
-        array1.forEach(function (element) {
-            element = element.toLowerCase();
-            array3.push(element);
-        });
-        array3.forEach(function (element1) {
-            let count = 0;
-            array3.forEach(function (element2) {
-                if (element1 === element2) {
-                    count += 1;
-                }
-            });
-            array2.push(count + " - " + element1);
-        });
-        let uniqueArray = [...new Set(array2)];
-        uniqueArray.sort();
-        uniqueArray.reverse();
-        uniqueArray.forEach(function (word) {
-            const paragraph = document.createElement("p");
-            paragraph.append(word);
-            document.body.append(paragraph);
-        });
-    }
+    return output;
 }
 
 // UI Logic
 
-function boldPassage(word, text) {
-    if (isEmpty(word) || isEmpty(text)) {
-        return null;
-    }
-    const p = document.createElement("p");
-    let textArray = text.split(" ");
-    textArray.forEach(function (element, index) {
-        if (word === element) {
-            const bold = document.createElement("strong");
-            bold.append(element);
-            p.append(bold);
-        } else {
-            p.append(element);
-        }
-        if (index !== (textArray.length - 1)) {
-            p.append(" ");
-        }
-    });
-    return p;
-}
+// function boldPassage(word, text) {
+//     if (isEmpty(word) || isEmpty(text)) {
+//         return null;
+//     }
+//     const p = document.createElement("p");
+//     let textArray = text.split(" ");
+//     textArray.forEach(function (element, index) {
+//         if (word === element) {
+//             const bold = document.createElement("strong");
+//             bold.append(element);
+//             p.append(bold);
+//         } else {
+//             p.append(element);
+//         }
+//         if (index !== (textArray.length - 1)) {
+//             p.append(" ");
+//         }
+//     });
+//     return p;
+// }
 
 function handleFormSubmission() {
     event.preventDefault();
