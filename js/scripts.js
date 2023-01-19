@@ -34,6 +34,61 @@ function numberOfOccurrencesInText(word, text) {
     return wordCount;
 }
 
+function totalWordCounter(words) {
+    if (isEmpty(words)) {
+        return null;
+    }
+    const totalWordArray = words.split(" ");
+    let container = "";
+    let wordCount = 0
+    // const word = text.toString() + ": " + wordCounter(text);
+    totalWordArray.forEach(function (word) {
+        let newWordCount = 0
+        wordCount = newWordCount + numberOfOccurrencesInText(word, words);
+        container += word + " " + wordCount;
+
+    })
+    // return word; 
+    return container;
+}
+
+function countEachWord(text) {
+    let array = [];
+    let array1 = [];
+    let array2 = [];
+    let array3 = [];
+
+    array[0] = document.getElementById("input").value;
+    array1 = array.toString();
+    array1 = array1.split(" ");
+    if (text.trim().length === 0) {
+        return null;
+    }
+    else {
+        array1.forEach(function (element) {
+            element = element.toLowerCase();
+            array3.push(element);
+        });
+        array3.forEach(function (element1) {
+            let count = 0;
+            array3.forEach(function (element2) {
+                if (element1 === element2) {
+                    count += 1;
+                }
+            });
+            array2.push(count + " - " + element1);
+        });
+        let uniqueArray = [...new Set(array2)];
+        uniqueArray.sort();
+        uniqueArray.reverse();
+        uniqueArray.forEach(function (word) {
+            const paragraph = document.createElement("p");
+            paragraph.append(word);
+            document.body.append(paragraph);
+        });
+    }
+}
+
 // UI Logic
 
 function boldPassage(word, text) {
