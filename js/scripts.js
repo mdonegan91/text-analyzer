@@ -35,43 +35,58 @@ function numberOfOccurrencesInText(word, text) {
 }
 
 function totalWordCounter(words) {
+    const listOfAllWords = words.split(" ");
+    let listOfUniqueWords = [];
+    let wordCount = 0;
     if (isEmpty(words)) {
         return null;
+    } else {
+        listOfAllWords.forEach((newWord) => {
+            if (listOfUniqueWords.includes(newWord.toLowerCase())) {
+                // do nothing
+            } else {
+                // found unique word!
+                wordCount = 0
+                listOfUniqueWords.push(newWord.toLowerCase());
+                // loop again to count new word you just found!
+                listOfAllWords.forEach( (compareWord) => {
+                    if (compareWord.toLowerCase() === newWord.toLowerCase()) {
+                        // found match! Tally up!
+                        wordCount++
+                    }
+                    // Compare next word
+                });
+                // Done: counting unique
+                listOfUniqueWords.push(wordCount.toString());
+            }
+            //  Done: finding unique
+        });
+        return listOfUniqueWords;
     }
-    const totalWordArray = words.split(" ");
-    let output = "";
-    let wordCount = 0
-    totalWordArray.forEach(function (word) {
-        let newWordCount = 0
-        wordCount = newWordCount + numberOfOccurrencesInText(word, words);
-        output += word + " " + wordCount + " ";
-
-    })
-    return output;
 }
 
 // UI Logic
 
-// function boldPassage(word, text) {
-//     if (isEmpty(word) || isEmpty(text)) {
-//         return null;
-//     }
-//     const p = document.createElement("p");
-//     let textArray = text.split(" ");
-//     textArray.forEach(function (element, index) {
-//         if (word === element) {
-//             const bold = document.createElement("strong");
-//             bold.append(element);
-//             p.append(bold);
-//         } else {
-//             p.append(element);
-//         }
-//         if (index !== (textArray.length - 1)) {
-//             p.append(" ");
-//         }
-//     });
-//     return p;
-// }
+function boldPassage(word, text) {
+    if (isEmpty(word) || isEmpty(text)) {
+        return null;
+    }
+    const p = document.createElement("p");
+    let textArray = text.split(" ");
+    textArray.forEach(function (element, index) {
+        if (word === element) {
+            const bold = document.createElement("strong");
+            bold.append(element);
+            p.append(bold);
+        } else {
+            p.append(element);
+        }
+        if (index !== (textArray.length - 1)) {
+            p.append(" ");
+        }
+    });
+    return p;
+}
 
 function handleFormSubmission() {
     event.preventDefault();
