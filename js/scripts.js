@@ -1,7 +1,12 @@
 // Utility Logic
 
-function isEmpty(testString) {
-    return (testString.trim().length === 0);
+function isEmpty() {
+    for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i].trim().length === 0) {
+            return true;
+        }
+    }
+    return false;
 }
 
 // Business Logic
@@ -49,7 +54,7 @@ function totalWordCounter(words) {
                 wordCount = 0
                 listOfUniqueWords.push(newWord.toLowerCase());
                 // loop again to count new word you just found!
-                listOfAllWords.forEach( (compareWord) => {
+                listOfAllWords.forEach((compareWord) => {
                     if (compareWord.toLowerCase() === newWord.toLowerCase()) {
                         // found match! Tally up!
                         wordCount++
@@ -67,26 +72,26 @@ function totalWordCounter(words) {
 
 // UI Logic
 
-function boldPassage(word, text) {
-    if (isEmpty(word) || isEmpty(text)) {
-        return null;
-    }
-    const p = document.createElement("p");
-    let textArray = text.split(" ");
-    textArray.forEach(function (element, index) {
-        if (word === element) {
-            const bold = document.createElement("strong");
-            bold.append(element);
-            p.append(bold);
-        } else {
-            p.append(element);
-        }
-        if (index !== (textArray.length - 1)) {
-            p.append(" ");
-        }
-    });
-    return p;
-}
+// function boldPassage(word, text) {
+//     if (isEmpty(word, text)) {
+//         return null;
+//     }
+//     const p = document.createElement("p");
+//     let textArray = text.split(" ");
+//     textArray.forEach(function (element, index) {
+//         if (word === element) {
+//             const bold = document.createElement("strong");
+//             bold.append(element);
+//             p.append(bold);
+//         } else {
+//             p.append(element);
+//         }
+//         if (index !== (textArray.length - 1)) {
+//             p.append(" ");
+//         }
+//     });
+//     return p;
+// }
 
 function handleFormSubmission() {
     event.preventDefault();
